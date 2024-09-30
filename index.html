@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor Secreto</title>
+</head>
+<body>
+    <h1>Traductor del Idioma Secreto al Español</h1>
+    
+    <textarea id="secretInput" rows="5" cols="30" placeholder="Escribe en el idioma secreto..."></textarea>
+    <br>
+    <button onclick="translate()">Traducir</button>
+    <br><br>
+    <textarea id="spanishOutput" rows="5" cols="30" placeholder="Traducción al español..." readonly></textarea>
+
+    <script>
+        const secretAlphabet = {
+            'ᐃ': 'A', 'ᐊ': 'B', 'ᑊ': 'C', 'ᐁ': 'D', 'ᐅ': 'E',
+            'ᑌ': 'F', 'ᑦ': 'G', 'ᑎ': 'H', 'ᐉ': 'I', 'ᐊᐃ': 'J',
+            'ᑭ': 'K', 'ᐟ': 'L', 'ᑕ': 'M', 'ᑯ': 'N', 'ᐇ': 'O',
+            'ᑉ': 'P', 'ᐸ': 'Q', 'ᐹ': 'R', 'ᐺ': 'S', 'ᐻ': 'T',
+            'ᐍ': 'U', 'ᑖ': 'V', 'ᐌ': 'W', 'ᐆ': 'X', 'ᑘ': 'Y', 'ᐞ': 'Z'
+        };
+
+        function translate() {
+            let inputText = document.getElementById("secretInput").value;
+            let outputText = '';
+
+            for (let i = 0; i < inputText.length; i++) {
+                let char = inputText[i];
+                outputText += secretAlphabet[char] || char; // Traduce si existe, sino deja igual
+            }
+
+            document.getElementById("spanishOutput").value = outputText;
+        }
+    </script>
+</body>
+</html>
